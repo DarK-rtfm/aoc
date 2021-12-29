@@ -27,6 +27,14 @@ genLine ((x1,y1),(x2,y2))
 linesToPoints :: [LineEnds] -> [(Int, Int)]
 linesToPoints = concatMap genLine
 
+countD :: Eq a => [a] -> Int
+countD = countD' 0 
+    where
+        countD' acc xs 
+            | null xs = acc
+            | otherwise = countD' (acc+1) $ filter (head xs /=) xs
+
+
 main :: IO()
 main = do
     lineends <- parse <$> readFile "input.txt"
