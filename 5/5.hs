@@ -30,7 +30,7 @@ linesToPoints = concatMap genLine
 main :: IO()
 main = do
     lineends <- parse <$> readFile "input.txt"
-    putStrLn "Hand on! It'll be slooooooow~"
+    putStrLn "Hang on! It'll be slooooooow~"
     putStrLn "part 1"
     print . length . doubles . linesToPoints . filterNotStr $ lineends
     putStrLn "part 2"
